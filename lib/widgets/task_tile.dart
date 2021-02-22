@@ -17,12 +17,21 @@ class _TaskTileState extends State<TaskTile> {
   @override
   Widget build(BuildContext context) {
     return CheckboxListTile(
-      title: Text("Task #01"),
+      contentPadding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+      title: Text(
+        "Task #01",
+        style: TextStyle(
+            decoration: isChecked ? TextDecoration.lineThrough : null),
+      ),
       subtitle: Text("Do this pls"),
       value: isChecked,
       onChanged: (val) {
         toggleCheckState(val);
       },
+      secondary: Padding(
+        child: Icon(Icons.view_compact_outlined),
+        padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      ),
       activeColor: Colors.amber,
     );
   }

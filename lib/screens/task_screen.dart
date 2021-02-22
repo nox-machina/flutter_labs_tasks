@@ -48,14 +48,14 @@ class TasksScreen extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.w200),
+                                fontWeight: FontWeight.w300),
                           ),
                           Text(
                             "#number tasks",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.w200),
+                                fontWeight: FontWeight.w300),
                           ),
                         ],
                       ),
@@ -67,13 +67,13 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-                padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-                // height: MediaQuery.of(context).size.height * 0.5,
+                clipBehavior: Clip.antiAlias,
+                margin: EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
-                    color: Colors.amber[50],
+                    color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25))),
                 child: TasksList()),
           )
         ],
@@ -82,8 +82,7 @@ class TasksScreen extends StatelessWidget {
         shape: CircularNotchedRectangle(),
         color: Colors.amber,
         child: Container(
-          height: 50,
-          //child:
+          height: 60,
         ),
       ),
       floatingActionButton: FloatingActionButton(
