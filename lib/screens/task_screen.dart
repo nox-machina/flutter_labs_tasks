@@ -8,6 +8,7 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber,
+      extendBody: true,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -77,6 +78,14 @@ class TasksScreen extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        color: Colors.amber,
+        child: Container(
+          height: 50,
+          //child:
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
@@ -88,8 +97,6 @@ class TasksScreen extends StatelessWidget {
                     bottom: MediaQuery.of(context).viewInsets.bottom * 1.25),
                 // padding: EdgeInsets.only(
                 // // bottom: MediaQuery.of(context).size.height * 0.45),
-                // margin: EdgeInsets.only(
-                //     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddTaskScreen(),
               ),
             ),
@@ -97,8 +104,8 @@ class TasksScreen extends StatelessWidget {
         },
         child: Icon(Icons.add_rounded),
         backgroundColor: Colors.black54,
-        foregroundColor: Colors.white,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }

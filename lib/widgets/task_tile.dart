@@ -6,46 +6,24 @@ class TaskTile extends StatefulWidget {
 }
 
 class _TaskTileState extends State<TaskTile> {
-  bool isDone = false;
+  bool isChecked = false;
 
-  void toggleCheckbox(_cbState) {
+  void toggleCheckState(val) {
     setState(() {
-      isDone = _cbState;
+      isChecked = val;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        toggleCheckbox(isDone);
+    return CheckboxListTile(
+      title: Text("Task #01"),
+      subtitle: Text("Do this pls"),
+      value: isChecked,
+      onChanged: (val) {
+        toggleCheckState(val);
       },
-      title: Text(
-        "Task #01",
-        style: TextStyle(
-            color: Colors.black,
-            decoration: isDone ? TextDecoration.lineThrough : null),
-      ),
-      trailing: TaskCheckbox(
-        cbState: isDone,
-        toggleCbState: toggleCheckbox,
-      ),
-    );
-  }
-}
-
-class TaskCheckbox extends StatelessWidget {
-  final bool cbState;
-  final Function toggleCbState;
-
-  TaskCheckbox({this.cbState, this.toggleCbState});
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
       activeColor: Colors.amber,
-      value: cbState,
-      onChanged: toggleCbState,
     );
   }
 }
